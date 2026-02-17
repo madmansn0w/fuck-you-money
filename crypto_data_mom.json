@@ -1,0 +1,33 @@
+{
+    "trades": [],
+    "settings": {
+        "default_exchange": "Binance",
+        "fee_structure": {
+            "Binance": {
+                "maker": 0.1,
+                "taker": 0.1
+            },
+            "Coinbase Pro": {
+                "maker": 0.4,
+                "taker": 0.5
+            },
+            "Kraken": {
+                "maker": 0.16,
+                "taker": 0.26
+            },
+            "Bybit": {
+                "maker": 0.1,
+                "taker": 0.1
+            },
+            "Crypto.com": {
+                "maker": 0.4,
+                "taker": 0.4
+            },
+            "Bitstamp": {
+                "maker": 0.5,
+                "taker": 0.5
+            }
+        },
+        "cost_basis_method": "average"
+    }
+}

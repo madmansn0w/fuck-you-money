@@ -1,0 +1,70 @@
+{
+    "trades": [
+        {
+            "id": "5aaba27c-83e3-4f35-b50b-3c315fa4fb40",
+            "date": "2026-02-16 16:46:10",
+            "asset": "BTC",
+            "type": "BUY",
+            "price": 65728.0,
+            "quantity": 0.77203192,
+            "exchange": "Binance",
+            "order_type": "taker",
+            "fee": 50.74411404,
+            "total_value": 50744.11403776,
+            "account_id": "fc7635da-ca46-40d5-9c71-6ee707c15d54"
+        }
+    ],
+    "settings": {
+        "default_exchange": "Binance",
+        "fee_structure": {
+            "Binance": {
+                "maker": 0.1,
+                "taker": 0.1
+            },
+            "Coinbase Pro": {
+                "maker": 0.4,
+                "taker": 0.5
+            },
+            "Kraken": {
+                "maker": 0.16,
+                "taker": 0.26
+            },
+            "Bybit": {
+                "maker": 0.1,
+                "taker": 0.1
+            },
+            "Crypto.com": {
+                "maker": 0.4,
+                "taker": 0.4
+            }
+        },
+        "cost_basis_method": "average",
+        "default_account_id": "fc7635da-ca46-40d5-9c71-6ee707c15d54",
+        "is_client": false,
+        "client_percentage": 0.0
+    },
+    "account_groups": [
+        {
+            "id": "04cca93c-c2c3-4599-a899-2c34fd816789",
+            "name": "My Portfolio",
+            "accounts": [
+                "fc7635da-ca46-40d5-9c71-6ee707c15d54",
+                "4d4cb53a-6f77-4ca3-833d-c004fe6718d0"
+            ]
+        }
+    ],
+    "accounts": [
+        {
+            "id": "fc7635da-ca46-40d5-9c71-6ee707c15d54",
+            "name": "Main",
+            "account_group_id": "04cca93c-c2c3-4599-a899-2c34fd816789",
+            "created_date": "2026-02-16 18:32:30"
+        },
+        {
+            "id": "4d4cb53a-6f77-4ca3-833d-c004fe6718d0",
+            "name": "Exodus",
+            "account_group_id": "04cca93c-c2c3-4599-a899-2c34fd816789",
+            "created_date": "2026-02-16 21:39:50"
+        }
+    ]
+}
