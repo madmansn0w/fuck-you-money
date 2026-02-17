@@ -1,5 +1,3 @@
-<<<<<<< Current (Your changes)
-=======
 """
 Crypto PnL Tracker Application for macOS
 
@@ -11,7 +9,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 from tkinter.constants import W, EW, E
 import ttkbootstrap as tb
-from ttkbootstrap.constants import SUCCESS, DANGER, PRIMARY, INFO
+from ttkbootstrap.constants import SUCCESS, DANGER, PRIMARY, INFO, SECONDARY
 import json
 import os
 import uuid
@@ -1425,8 +1423,8 @@ class CryptoTrackerApp(tb.Window):
         pnl_color = APPLE_COLOR_PROFIT if total_pnl >= 0 else APPLE_COLOR_LOSS
         roi_color = APPLE_COLOR_PROFIT if roi >= 0 else APPLE_COLOR_LOSS
 
-        summary_grid = tb.Frame(summary_frame, padx=SUMMARY_CONTENT_PADX, pady=SUMMARY_PAD)
-        summary_grid.pack(fill="x", pady=SUMMARY_PAD)
+        summary_grid = tb.Frame(summary_frame)
+        summary_grid.pack(fill="x", pady=SUMMARY_PAD, padx=SUMMARY_CONTENT_PADX)
         # Row 0: value in $ (left), profit in $ (right)
         left0 = tb.Frame(summary_grid)
         left0.grid(row=0, column=0, sticky=W, padx=(0, APPLE_SPACING_LARGE), pady=2)
@@ -1450,8 +1448,8 @@ class CryptoTrackerApp(tb.Window):
         # Accounts Section (tighter spacing)
         accounts_frame = tb.LabelFrame(self.summary_content_frame, text="Accounts")
         accounts_frame.pack(fill="x", padx=SUMMARY_OUTER_PAD, pady=SUMMARY_OUTER_PAD)
-        _af_inner = tb.Frame(accounts_frame, padx=SUMMARY_CONTENT_PADX, pady=SUMMARY_PAD)
-        _af_inner.pack(fill="x")
+        _af_inner = tb.Frame(accounts_frame)
+        _af_inner.pack(fill="x", padx=SUMMARY_CONTENT_PADX, pady=SUMMARY_PAD)
 
         if self.selected_group_id:
             accounts = get_accounts(self.data, self.selected_group_id)
@@ -1487,8 +1485,8 @@ class CryptoTrackerApp(tb.Window):
         # Assets Section (tighter spacing)
         assets_frame = tb.LabelFrame(self.summary_content_frame, text="Assets")
         assets_frame.pack(fill="x", padx=SUMMARY_OUTER_PAD, pady=SUMMARY_OUTER_PAD)
-        _asf_inner = tb.Frame(assets_frame, padx=SUMMARY_CONTENT_PADX, pady=SUMMARY_PAD)
-        _asf_inner.pack(fill="both", expand=True)
+        _asf_inner = tb.Frame(assets_frame)
+        _asf_inner.pack(fill="both", expand=True, padx=SUMMARY_CONTENT_PADX, pady=SUMMARY_PAD)
 
         if assets:
             columns = ("Asset", "Qty", "Value", "P&L")
@@ -1524,8 +1522,8 @@ class CryptoTrackerApp(tb.Window):
         # Open Positions Section: two-row cards (Asset × Qty | PnL; Entry Price | Value of Holdings)
         positions_frame = tb.LabelFrame(self.summary_content_frame, text="Open Positions")
         positions_frame.pack(fill="x", padx=SUMMARY_OUTER_PAD, pady=SUMMARY_OUTER_PAD)
-        _pf_inner = tb.Frame(positions_frame, padx=SUMMARY_CONTENT_PADX, pady=SUMMARY_PAD)
-        _pf_inner.pack(fill="x")
+        _pf_inner = tb.Frame(positions_frame)
+        _pf_inner.pack(fill="x", padx=SUMMARY_CONTENT_PADX, pady=SUMMARY_PAD)
 
         if assets:
             for asset in sorted(assets):
@@ -3174,4 +3172,3 @@ class CryptoTrackerApp(tb.Window):
 if __name__ == "__main__":
     app = CryptoTrackerApp()
     app.mainloop()
->>>>>>> Incoming (Background Agent changes)
