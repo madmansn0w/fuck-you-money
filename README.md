@@ -66,6 +66,8 @@ pytest tests/ -v
 swift test
 ```
 
+**Both (full check):** `PYTHONPATH=src pytest tests/ -v && swift test`
+
 ## Layout
 
 - `src/crypto_tracker/` – main package

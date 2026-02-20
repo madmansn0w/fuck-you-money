@@ -267,6 +267,12 @@ Restore (app or CLI) overwrites `users.json`, each `crypto_data_<user>.json`, an
 
 ---
 
+## Out of scope (app-only)
+
+**Polymarket:** Prediction-market data (events, order book, arbitrage views) is loaded in the app from Polymarket’s Gamma API and CLOB API. It is not exposed by this local HTTP API. Optional base URLs are configurable in **Settings → Polymarket**.
+
+---
+
 ## Error format
 
 On 4xx/5xx the body is JSON: `{ "error": "human-readable message" }`.
