@@ -97,3 +97,4 @@ Dedicated **Polymarket** tab for prediction-market discovery, trading, arbitrage
 - **2025-02**: Polymarket combinatorial arbitrage (#17). Tab: "Combinatorial arbitrage" section for markets with 3+ outcomes where sum of outcome prices &lt; $1; shows outcome breakdown, sum, gap %, Open link.
 - **2025-02**: Cross-platform arb (#21). Strategy breakdown: Cross-platform arbitrage row + links to Polymarket docs and Kalshi markets for manual comparison.
 - **2025-02**: Polymarket unit tests. CryptoTrackerCoreTests: PolymarketTests (arbGap, OrderBookSnapshot spread/midpoint, decodeOrderBook, decodeEvents).
+- **2025-02**: Project is Swift-only. Python app (crypto-tracker.py), package (src/crypto_tracker), pyproject.toml, and Python tests removed. README and .gitignore updated.
