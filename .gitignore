@@ -40,3 +40,7 @@ Thumbs.db
 # Project specific
 crypto_data.json
 price_cache.json
+
+# Swift
+.build/
+.swiftpm/

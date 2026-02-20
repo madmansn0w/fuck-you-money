@@ -1,0 +1,41 @@
+# XcodeGen spec. Generate a working Xcode project with:
+#   brew install xcodegen   # if needed
+#   cd CryptoTrackerApp && xcodegen generate
+# Then open CryptoTrackerApp.xcodeproj in Xcode.
+name: CryptoTrackerApp
+options:
+  bundleIdPrefix: com.cryptotracker
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "14.0"
+  groupSortPosition: top
+  generateEmptyDirectories: false
+packages:
+  CryptoTrackerCore:
+    path: ..
+targets:
+  CryptoTrackerApp:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: .
+        name: CryptoTrackerApp
+        excludes:
+          - "project.yml"
+          - "ADD_PACKAGE.md"
+          - "*.xcodeproj"
+          - "*.xcscheme"
+          - "*.xcscheme.bak"
+    settings:
+      base:
+        INFOPLIST_FILE: Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.cryptotracker.app
+        SWIFT_VERSION: "5.0"
+        LD_RUNPATH: "@executable_path/../Frameworks"
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_PREVIEWS: YES
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - package: CryptoTrackerCore
+        product: CryptoTrackerCore

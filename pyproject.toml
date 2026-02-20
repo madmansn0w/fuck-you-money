@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crypto-tracker"
+version = "0.1.0"
+description = "Desktop crypto portfolio tracker with modular core and Tkinter UI."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "sn0w" }
+]
+dependencies = [
+  "ttkbootstrap",
+  "requests",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+]
+
+[project.scripts]
+crypto-tracker = "crypto_tracker.app:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
