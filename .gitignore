@@ -44,3 +44,7 @@ price_cache.json
 # Swift
 .build/
 .swiftpm/
+
+# Xcode user state
+*.xcuserstate
+*.xcuserdatad/
