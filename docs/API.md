@@ -1,4 +1,4 @@
-# CryptoTracker Local API (v1)
+# FuckYouMoney Local API (v1)
 
 Base URL: `http://localhost:<port>` (port configurable in Settings; default 38472).
 

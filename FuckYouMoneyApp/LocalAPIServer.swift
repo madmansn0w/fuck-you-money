@@ -1,7 +1,7 @@
 import Foundation
 import Network
 
-/// Minimal local HTTP API server for CryptoTracker (localhost only).
+/// Minimal local HTTP API server for FuckYouMoney (localhost only).
 /// Handles: GET /v1/health, GET /v1/portfolio, POST /v1/trades, POST /v1/refresh.
 final class LocalAPIServer: @unchecked Sendable {
     private let port: UInt16

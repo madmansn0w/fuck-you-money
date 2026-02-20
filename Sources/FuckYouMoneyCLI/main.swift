@@ -1,5 +1,5 @@
 import Foundation
-import CryptoTrackerCore
+import FuckYouMoneyCore
 
 func argValue(_ name: String, from args: [String]) -> String? {
     guard let i = args.firstIndex(of: name), i + 1 < args.count else { return nil }
@@ -32,7 +32,7 @@ func recordPriceHistory(storage: StorageService, cache: [String: [String: Any]],
 }
 
 /// Notify the running Swift app to reload data: try POST /v1/refresh to local API first;
-/// if that fails (e.g. API disabled), open cryptotracker://refresh via the system.
+/// if that fails (e.g. API disabled), open fuckyoumoney://refresh via the system.
 func notifyApp(apiPort: Int = 38472) {
     let url = URL(string: "http://127.0.0.1:\(apiPort)/v1/refresh")!
     var request = URLRequest(url: url)
@@ -50,7 +50,7 @@ func notifyApp(apiPort: Int = 38472) {
     if useFallback {
         let proc = Process()
         proc.executableURL = URL(fileURLWithPath: "/usr/bin/open")
-        proc.arguments = ["cryptotracker://refresh"]
+        proc.arguments = ["fuckyoumoney://refresh"]
         try? proc.run()
     }
 }
@@ -63,7 +63,7 @@ func main() {
     let user = argValue("--user", from: args) ?? "Default"
 
     if args.isEmpty || args.contains("--help") || args.contains("-h") {
-        print("Usage: crypto-tracker-cli <command> [options]")
+        print("Usage: fuck-you-money-cli <command> [options]")
         print("Commands: list-trades, add-trade, export-trades, import-trades, portfolio, positions, refresh, restore-backup")
         print("Options: --user <name> (default: Default), --data-dir <path>, --notify-app [--api-port 38472]")
         print("  add-trade: --asset, --type, --quantity, --price [--fee 0] [--exchange] [--account-id] [--date]")
@@ -75,7 +75,7 @@ func main() {
         return
     }
     if args.contains("--version") || args.contains("-v") {
-        print("crypto-tracker-cli 1.0.0")
+        print("fuck-you-money-cli 1.0.0")
         return
     }
 

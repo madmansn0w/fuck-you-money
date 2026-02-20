@@ -2,28 +2,28 @@
 import PackageDescription
 
 let package = Package(
-    name: "CryptoTracker",
+    name: "FuckYouMoney",
     platforms: [
         .macOS(.v13),
     ],
     products: [
-        .library(name: "CryptoTrackerCore", targets: ["CryptoTrackerCore"]),
-        .executable(name: "crypto-tracker-cli", targets: ["CryptoTrackerCLI"]),
+        .library(name: "FuckYouMoneyCore", targets: ["FuckYouMoneyCore"]),
+        .executable(name: "fuck-you-money-cli", targets: ["FuckYouMoneyCLI"]),
     ],
     targets: [
         .target(
-            name: "CryptoTrackerCore",
-            path: "Sources/CryptoTrackerCore"
+            name: "FuckYouMoneyCore",
+            path: "Sources/FuckYouMoneyCore"
         ),
         .testTarget(
-            name: "CryptoTrackerCoreTests",
-            dependencies: ["CryptoTrackerCore"],
-            path: "tests/CryptoTrackerCoreTests"
+            name: "FuckYouMoneyCoreTests",
+            dependencies: ["FuckYouMoneyCore"],
+            path: "tests/FuckYouMoneyCoreTests"
         ),
         .executableTarget(
-            name: "CryptoTrackerCLI",
-            dependencies: ["CryptoTrackerCore"],
-            path: "Sources/CryptoTrackerCLI"
+            name: "FuckYouMoneyCLI",
+            dependencies: ["FuckYouMoneyCore"],
+            path: "Sources/FuckYouMoneyCLI"
         ),
     ]
 )

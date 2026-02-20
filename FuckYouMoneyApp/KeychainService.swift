@@ -6,7 +6,7 @@ import Security
 final class KeychainService {
     static let shared = KeychainService()
 
-    private let serviceName = "CryptoTracker.API"
+    private let serviceName = "FuckYouMoney.API"
 
     private init() {}
 

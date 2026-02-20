@@ -1,5 +1,5 @@
 import XCTest
-@testable import CryptoTrackerCore
+@testable import FuckYouMoneyCore
 
 final class MetricsTests: XCTestCase {
 

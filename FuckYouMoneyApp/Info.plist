@@ -7,10 +7,10 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>cryptotracker</string>
+				<string>fuckyoumoney</string>
 			</array>
 			<key>CFBundleURLName</key>
-			<string>CryptoTracker</string>
+			<string>Fuck You Money</string>
 			<key>CFBundleRoleOwner</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 		</dict>

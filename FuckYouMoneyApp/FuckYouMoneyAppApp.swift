@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct CryptoTrackerAppApp: App {
+struct FuckYouMoneyAppApp: App {
     @StateObject private var appState = AppState()
     @Environment(\.openURL) private var openURL
 
@@ -19,7 +19,7 @@ struct CryptoTrackerAppApp: App {
     }
 
     private func handleURL(_ url: URL) {
-        guard url.scheme == "cryptotracker" else { return }
+        guard url.scheme == "fuckyoumoney" else { return }
         let host = url.host ?? ""
         switch host {
         case "open":

@@ -1,7 +1,7 @@
 import SwiftUI
 import AppKit
 import UserNotifications
-import CryptoTrackerCore
+import FuckYouMoneyCore
 import Charts
 
 // MARK: - Animated number (slot-machine style, 1s)
@@ -486,7 +486,7 @@ struct SummaryPanelView: View {
 
 struct TransactionsTabView: View {
     @EnvironmentObject var appState: AppState
-    @AppStorage("CryptoTracker.watchlistAssets") private var watchlistRaw = ""
+    @AppStorage("FuckYouMoney.watchlistAssets") private var watchlistRaw = ""
     @State private var asset = "BTC"
     @State private var type = "BUY"
     @State private var quantity = ""
@@ -963,8 +963,8 @@ struct PolymarketTabView: View {
     @State private var events: [PolymarketEvent] = []
     @State private var loading = false
     @State private var loadError: String?
-    @AppStorage("CryptoTracker.polymarketGammaBaseURL") private var polymarketGammaBaseURL = ""
-    @AppStorage("CryptoTracker.polymarketClobBaseURL") private var polymarketClobBaseURL = ""
+    @AppStorage("FuckYouMoney.polymarketGammaBaseURL") private var polymarketGammaBaseURL = ""
+    @AppStorage("FuckYouMoney.polymarketClobBaseURL") private var polymarketClobBaseURL = ""
     private var polymarketService: PolymarketService {
         PolymarketService(
             gammaBaseURL: polymarketGammaBaseURL.isEmpty ? nil : polymarketGammaBaseURL,
@@ -1058,8 +1058,8 @@ struct PolymarketTabView: View {
     @State private var spreadMarketSelection: (event: PolymarketEvent, market: PolymarketMarket)?
     @State private var orderBook: OrderBookSnapshot?
     @State private var orderBookLoading = false
-    @AppStorage("CryptoTracker.polymarketScalpAlertEnabled") private var scalpAlertEnabled = false
-    @AppStorage("CryptoTracker.polymarketScalpAlertThresholdPct") private var scalpAlertThresholdPct = "5"
+    @AppStorage("FuckYouMoney.polymarketScalpAlertEnabled") private var scalpAlertEnabled = false
+    @AppStorage("FuckYouMoney.polymarketScalpAlertThresholdPct") private var scalpAlertThresholdPct = "5"
     @State private var lastScalpNotifiedTokenId: String?
 
     var body: some View {
@@ -1511,7 +1511,7 @@ struct AssetsTabView: View {
     @State private var assetMarketDataLoading = false
     /// YTD % (Jan 1 → now) from historical price fetch; nil for stablecoins or when unavailable.
     @State private var ytdPct: Double? = nil
-    @AppStorage("CryptoTracker.watchlistAssets") private var watchlistRaw = ""
+    @AppStorage("FuckYouMoney.watchlistAssets") private var watchlistRaw = ""
     @State private var watchlistAddSymbol: String = ""
 
     /// Held assets from current portfolio metrics (sorted).
@@ -4356,8 +4356,8 @@ struct SettingsView: View {
     @State private var exchangeSheetMaker = "0.1"
     @State private var exchangeSheetTaker = "0.1"
     @State private var exchangeSheetEditing: String? = nil
-    @AppStorage("CryptoTracker.polymarketGammaBaseURL") private var polymarketGammaBaseURL = ""
-    @AppStorage("CryptoTracker.polymarketClobBaseURL") private var polymarketClobBaseURL = ""
+    @AppStorage("FuckYouMoney.polymarketGammaBaseURL") private var polymarketGammaBaseURL = ""
+    @AppStorage("FuckYouMoney.polymarketClobBaseURL") private var polymarketClobBaseURL = ""
 
     private var parsedTabOrder: [String] {
         let parsed = tabOrderRaw.split(separator: ",").map(String.init)

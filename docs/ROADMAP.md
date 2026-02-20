@@ -1,4 +1,4 @@
-# CryptoTracker Roadmap
+# Fuck You Money Roadmap
 
 ## Completed (Pillars 1–6 + polish)
 
@@ -90,11 +90,11 @@ Dedicated **Polymarket** tab for prediction-market discovery, trading, arbitrage
 - **2025-02**: Restore from backup. Settings → Data → "Restore from backup…" opens file picker; confirm alert; restores users, data_by_user, price_history to storage and reloads app state. Backup format: price_history optional for older backups.
 - **2025-02**: Restore UX: confirmation alert shows backup timestamp (exported_at). CLI: restore-backup --file &lt;path&gt; [--data-dir] [--notify-app]. docs/API.md: Backup file format section.
 - **2025-02**: Polymarket tab added to roadmap. New section "Polymarket tab" with feature table (crypto markets discovery, trading, arbitrage, scalping, systematic NO, strategy breakdown, cross-platform arb); strategies mapped to data/actions/info. Tab registered in app with placeholder view.
-- **2025-02**: Polymarket tab implementation. CryptoTrackerCore: PolymarketService + PolymarketEvent/PolymarketMarket (Gamma API). Tab: crypto markets list (pull-to-refresh), intra-market arb opportunities, scalping placeholder, strategy breakdown (collapsible + docs link). #15, #17 (intra), #20 Done. Settings: Polymarket section (optional Gamma/CLOB base URLs).
+- **2025-02**: Polymarket tab implementation. FuckYouMoneyCore: PolymarketService + PolymarketEvent/PolymarketMarket (Gamma API). Tab: crypto markets list (pull-to-refresh), intra-market arb opportunities, scalping placeholder, strategy breakdown (collapsible + docs link). #15, #17 (intra), #20 Done. Settings: Polymarket section (optional Gamma/CLOB base URLs).
 - **2025-02**: Polymarket CLOB + Systematic NO. Core: OrderBookSnapshot, fetchOrderBook(tokenId:), PolymarketMarket.clobTokenIds. Tab: Scalping section shows market selector and live order book (spread, midpoint, top 5 bids/asks). Systematic NO section: high-YES (≥65%) markets with end date and Open link. #18 (read), #19 Done.
 - **2025-02**: Polymarket Endgame arb + Scalp alerts. Tab: Endgame arbitrage section (outcome ≥95%, resolves within 14 days; implied yield). Scalping: "Refresh book", threshold % + "Alert" toggle; local notification when spread ≥ threshold on load/refresh. #17 (endgame), #18 (scalp alerts) Done.
 - **2025-02**: Roadmap #16 clarified: Polymarket trading marked Done (read-only) for order book/spread/midpoint and Open links; backlog remains wallet + place/cancel orders.
 - **2025-02**: Polymarket combinatorial arbitrage (#17). Tab: "Combinatorial arbitrage" section for markets with 3+ outcomes where sum of outcome prices &lt; $1; shows outcome breakdown, sum, gap %, Open link.
 - **2025-02**: Cross-platform arb (#21). Strategy breakdown: Cross-platform arbitrage row + links to Polymarket docs and Kalshi markets for manual comparison.
-- **2025-02**: Polymarket unit tests. CryptoTrackerCoreTests: PolymarketTests (arbGap, OrderBookSnapshot spread/midpoint, decodeOrderBook, decodeEvents).
+- **2025-02**: Polymarket unit tests. FuckYouMoneyCoreTests: PolymarketTests (arbGap, OrderBookSnapshot spread/midpoint, decodeOrderBook, decodeEvents).
 - **2025-02**: Project is Swift-only. Python app (crypto-tracker.py), package (src/crypto_tracker), pyproject.toml, and Python tests removed. README and .gitignore updated.

@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 import UserNotifications
-import CryptoTrackerCore
+import FuckYouMoneyCore
 
 /// User-defined alert rule. Stored in UserDefaults.
 struct AlertRule: Codable, Equatable, Identifiable {
@@ -44,12 +44,12 @@ final class AppState: ObservableObject {
     private let metrics = MetricsService()
     private var apiServer: LocalAPIServer?
 
-    static let apiEnabledKey = "CryptoTracker.apiEnabled"
-    static let apiPortKey = "CryptoTracker.apiPort"
-    static let webhookURLKey = "CryptoTracker.webhookURL"
-    static let alertsEnabledKey = "CryptoTracker.alertsEnabled"
-    static let alertRulesKey = "CryptoTracker.alertRules"
-    static let dataDirectoryKey = "CryptoTracker.dataDirectoryPath"
+    static let apiEnabledKey = "FuckYouMoney.apiEnabled"
+    static let apiPortKey = "FuckYouMoney.apiPort"
+    static let webhookURLKey = "FuckYouMoney.webhookURL"
+    static let alertsEnabledKey = "FuckYouMoney.alertsEnabled"
+    static let alertRulesKey = "FuckYouMoney.alertRules"
+    static let dataDirectoryKey = "FuckYouMoney.dataDirectoryPath"
     var apiEnabled: Bool {
         get { UserDefaults.standard.bool(forKey: Self.apiEnabledKey) }
         set { UserDefaults.standard.set(newValue, forKey: Self.apiEnabledKey); if newValue { startAPIServer() } else { stopAPIServer() } }
@@ -104,7 +104,7 @@ final class AppState: ObservableObject {
             return URL(fileURLWithPath: (path as NSString).expandingTildeInPath)
         }
         return FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-            .appendingPathComponent("CryptoTracker", isDirectory: true)
+            .appendingPathComponent("FuckYouMoney", isDirectory: true)
     }
 
     init() {
@@ -118,7 +118,7 @@ final class AppState: ObservableObject {
             return URL(fileURLWithPath: (path as NSString).expandingTildeInPath)
         }
         return FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-            .appendingPathComponent("CryptoTracker", isDirectory: true)
+            .appendingPathComponent("FuckYouMoney", isDirectory: true)
     }
 
     /// Switch to a custom data directory (e.g. folder containing crypto_data_default.json from Python). Reloads data.
@@ -499,7 +499,7 @@ final class AppState: ObservableObject {
                     }
                 }
                 let content = UNMutableNotificationContent()
-                content.title = "CryptoTracker Alert"
+                content.title = "FuckYouMoney Alert"
                 content.body = message
                 content.sound = .default
                 let request = UNNotificationRequest(identifier: "alert-\(rule.id)-\(Date().timeIntervalSince1970)", content: content, trigger: nil)
@@ -679,7 +679,7 @@ final class AppState: ObservableObject {
     func backupDefaultFilename() -> String {
         let f = DateFormatter()
         f.dateFormat = "yyyy-MM-dd'T'HH-mm-ss"
-        return "cryptotracker_backup_\(f.string(from: Date())).json"
+        return "fuckyoumoney_backup_\(f.string(from: Date())).json"
     }
 
     /// Simple query handler for the in-app Assistant: interprets natural-language-style input and returns a formatted answer (no LLM).
@@ -1281,7 +1281,7 @@ final class AppState: ObservableObject {
 
     /// API documentation served at GET /v1/docs (Markdown).
     private static let apiDocsMarkdown = """
-    # CryptoTracker Local API (v1)
+    # FuckYouMoney Local API (v1)
 
     Base URL: http://localhost:<port> (port in Settings; default 38472).
 

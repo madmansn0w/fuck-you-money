@@ -1,26 +1,26 @@
 # XcodeGen spec. Generate a working Xcode project with:
 #   brew install xcodegen   # if needed
-#   cd CryptoTrackerApp && xcodegen generate
-# Then open CryptoTrackerApp.xcodeproj in Xcode.
-name: CryptoTrackerApp
+#   cd FuckYouMoneyApp && xcodegen generate
+# Then open FuckYouMoneyApp.xcodeproj in Xcode.
+name: FuckYouMoneyApp
 options:
-  bundleIdPrefix: com.cryptotracker
+  bundleIdPrefix: com.fuckyoumoney
   deploymentTarget:
     macOS: "13.0"
   xcodeVersion: "14.0"
   groupSortPosition: top
   generateEmptyDirectories: false
 packages:
-  CryptoTrackerCore:
+  FuckYouMoneyCore:
     path: ..
 targets:
-  CryptoTrackerApp:
+  FuckYouMoneyApp:
     type: application
     platform: macOS
     deploymentTarget: "13.0"
     sources:
       - path: .
-        name: CryptoTrackerApp
+        name: FuckYouMoneyApp
         excludes:
           - "project.yml"
           - "ADD_PACKAGE.md"
@@ -30,12 +30,12 @@ targets:
     settings:
       base:
         INFOPLIST_FILE: Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.cryptotracker.app
+        PRODUCT_BUNDLE_IDENTIFIER: com.fuckyoumoney.app
         SWIFT_VERSION: "5.0"
         LD_RUNPATH: "@executable_path/../Frameworks"
         CODE_SIGN_STYLE: Automatic
         ENABLE_PREVIEWS: YES
         GENERATE_INFOPLIST_FILE: YES
     dependencies:
-      - package: CryptoTrackerCore
-        product: CryptoTrackerCore
+      - package: FuckYouMoneyCore
+        product: FuckYouMoneyCore

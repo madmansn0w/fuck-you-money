@@ -1,5 +1,5 @@
 import XCTest
-@testable import CryptoTrackerCore
+@testable import FuckYouMoneyCore
 
 /// Tests for price history load/save (used for correlation matrix).
 final class PriceHistoryStorageTests: XCTestCase {

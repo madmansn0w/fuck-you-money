@@ -1,12 +1,12 @@
-# Crypto PnL Tracker
+# Fuck You Money
 
 macOS crypto portfolio tracker with a native SwiftUI app and CLI. Supports multiple users, accounts, cost basis methods (FIFO/LIFO/average), and uses JSON data files for portfolio and price cache.
 
 ## Build and run
 
-**Swift app:** Open `CryptoTrackerApp/CryptoTrackerApp.xcodeproj` in Xcode. If the project was opened without the Swift package, add it: **File → Add Package Dependencies… → Add Local…** and select the **repo root** (the folder containing `Package.swift`). Add the **CryptoTrackerCore** product to the CryptoTrackerApp target. See `CryptoTrackerApp/ADD_PACKAGE.md` for step-by-step instructions. Then select the **CryptoTrackerApp** scheme and Product → Run (⌘R).
+**Swift app:** Open `FuckYouMoneyApp/FuckYouMoneyApp.xcodeproj` in Xcode. If the project was opened without the Swift package, add it: **File → Add Package Dependencies… → Add Local…** and select the **repo root** (the folder containing `Package.swift`). Add the **FuckYouMoneyCore** product to the FuckYouMoneyApp target. See `FuckYouMoneyApp/ADD_PACKAGE.md` for step-by-step instructions. Then select the **FuckYouMoneyApp** scheme and Product → Run (⌘R).
 
-**CLI:** From repo root run `swift build`; the binary is `.build/debug/crypto-tracker-cli` (or `release` with `-c release`).
+**CLI:** From repo root run `swift build`; the binary is `.build/debug/fuck-you-money-cli` (or `release` with `-c release`).
 
 ## Tests
 
@@ -16,11 +16,11 @@ swift test
 
 ## Layout
 
-- `CryptoTrackerApp/` – SwiftUI macOS app (Xcode project)
-- `Sources/CryptoTrackerCore/` – shared core (metrics, storage, pricing, Polymarket, exchanges)
-- `Sources/CryptoTrackerCLI/` – CLI executable
+- `FuckYouMoneyApp/` – SwiftUI macOS app (Xcode project)
+- `Sources/FuckYouMoneyCore/` – shared core (metrics, storage, pricing, Polymarket, exchanges)
+- `Sources/FuckYouMoneyCLI/` – CLI executable
 - `Package.swift` – Swift package definition
-- `tests/CryptoTrackerCoreTests/` – Swift unit tests
+- `tests/FuckYouMoneyCoreTests/` – Swift unit tests
 - `docs/` – API spec (`API.md`), roadmap (`ROADMAP.md`)
 
 Data files (when using a folder like repo root or Application Support): `crypto_data_<username>.json`, `users.json`, `price_cache.json`, `price_history.json`.
@@ -40,18 +40,18 @@ The main window has a **sidebar** (accounts and groups), a **summary panel** (po
 
 You can **reorder the tabs** in **Settings → Tab order** (Move Up / Move Down); the order is saved.
 
-- **Data directory**: By default the app uses `~/Library/Application Support/CryptoTracker/` for data and price history. In **Settings → Data** you can choose **Use existing folder…** (e.g. repo root) to use JSON files in that folder.
+- **Data directory**: By default the app uses `~/Library/Application Support/FuckYouMoney/` for data and price history. In **Settings → Data** you can choose **Use existing folder…** (e.g. repo root) to use JSON files in that folder.
 - **Backup**: **Settings → Data → Backup all data…** exports all users’ data and price history as a timestamped JSON file. **Restore from backup…** replaces all data with a chosen backup file.
 - **Alerts & news**: **Settings → Alerts** – portfolio/price/drawdown alerts and **Notify when new noteworthy news appears** (macOS notifications when Dashboard news is loaded or refreshed).
 
 ## URL scheme
 
-The app registers the `cryptotracker` URL scheme (e.g. when the app is running):
+The app registers the `fuckyoumoney` URL scheme (e.g. when the app is running):
 
-- **Activate app**: `open "cryptotracker://open"`
-- **Refresh prices**: `open "cryptotracker://refresh"`
+- **Activate app**: `open "fuckyoumoney://open"`
+- **Refresh prices**: `open "fuckyoumoney://refresh"`
 - **Add one trade**:  
-  `open "cryptotracker://add-trade?user=Default&asset=BTC&type=BUY&quantity=0.5&price=40000&fee=20&exchange=Bitstamp"`  
+  `open "fuckyoumoney://add-trade?user=Default&asset=BTC&type=BUY&quantity=0.5&price=40000&fee=20&exchange=Bitstamp"`  
   Optional query params: `user`, `asset`, `type`, `quantity`, `price`, `fee`, `total_value`, `exchange`, `account_id`, `date` (ISO or app format).
 
 ## Local HTTP API (optional)
@@ -85,9 +85,9 @@ curl -s -X POST http://localhost:38472/v1/trades -H "Content-Type: application/j
 
 ## CLI
 
-The **crypto-tracker-cli** executable reads and writes the same JSON files (no app required).
+The **fuck-you-money-cli** executable reads and writes the same JSON files (no app required).
 
-- **Data directory**: Set `CRYPTO_TRACKER_DATA_DIR` or use `--data-dir <path>`. Default is the app’s Application Support directory; use `--data-dir .` to use the current directory (e.g. repo root).
+- **Data directory**: Set `FUCK_YOU_MONEY_DATA_DIR` or use `--data-dir <path>`. Default is the app’s Application Support directory; use `--data-dir .` to use the current directory (e.g. repo root).
 
 **Commands:**
 
@@ -102,16 +102,16 @@ The **crypto-tracker-cli** executable reads and writes the same JSON files (no a
 | `refresh [--notify-app]` | Fetch prices and update cache. Use `--notify-app` to tell the running app to reload. |
 | `restore-backup --file path [--data-dir <path>] [--notify-app]` | Restore users, data, and price history from a backup file. |
 
-**Notify running app:** Use `--notify-app` with `add-trade`, `import-trades`, `refresh`, or `restore-backup` (tries `POST /v1/refresh` first; else `cryptotracker://refresh`). Optional: `--api-port 38472`.
+**Notify running app:** Use `--notify-app` with `add-trade`, `import-trades`, `refresh`, or `restore-backup` (tries `POST /v1/refresh` first; else `fuckyoumoney://refresh`). Optional: `--api-port 38472`.
 
 Example (repo root):
 
 ```bash
 swift build
-.build/debug/crypto-tracker-cli --data-dir . --user Default list-trades
-.build/debug/crypto-tracker-cli --data-dir . add-trade --asset BTC --type BUY --quantity 0.1 --price 50000
-.build/debug/crypto-tracker-cli --data-dir . portfolio
-.build/debug/crypto-tracker-cli --data-dir . positions --output positions.json
+.build/debug/fuck-you-money-cli --data-dir . --user Default list-trades
+.build/debug/fuck-you-money-cli --data-dir . add-trade --asset BTC --type BUY --quantity 0.1 --price 50000
+.build/debug/fuck-you-money-cli --data-dir . portfolio
+.build/debug/fuck-you-money-cli --data-dir . positions --output positions.json
 ```
 
-After the CLI writes data, if the app is open use `cryptotracker://refresh` or `POST /v1/refresh` (if the API is enabled) so the app reloads.
+After the CLI writes data, if the app is open use `fuckyoumoney://refresh` or `POST /v1/refresh` (if the API is enabled) so the app reloads.

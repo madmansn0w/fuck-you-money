@@ -1,5 +1,5 @@
 import XCTest
-@testable import CryptoTrackerCore
+@testable import FuckYouMoneyCore
 
 /// Tests for Polymarket Core: PolymarketMarket.arbGap, OrderBookSnapshot spread/midpoint,
 /// and Gamma/CLOB JSON decoding.
