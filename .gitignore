@@ -1,31 +1,3 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual Environment
-venv/
-env/
-ENV/
-.venv
-
 # IDE
 .vscode/
 .idea/
@@ -37,7 +9,7 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Project specific
+# Project specific (optional local data)
 crypto_data.json
 price_cache.json
 
@@ -48,3 +20,7 @@ price_cache.json
 # Xcode user state
 *.xcuserstate
 *.xcuserdatad/
+
+# Leftover Python (if any)
+__pycache__/
+venv/
